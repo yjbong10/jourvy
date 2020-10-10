@@ -1,0 +1,89 @@
+.btn {
+    border: none;
+    background-color: var(--p-font);
+    padding: .75rem 1rem;
+    width: 100%;
+    margin-bottom: .3rem;
+    cursor: pointer;
+    text-align: center;
+
+    border: none;
+    outline: none;
+
+    color: var(--white);
+    max-width: 4rem;
+   
+    transition: 1s ease;
+
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+
+    opacity: 0;
+    transform: translateY(.5rem);
+    animation: fadeIn 2s ease forwards 1s;
+}
+
+@keyframes fadeIn {
+    100% {
+        opacity: 1;
+        transform: translateY(0rem);
+    }
+}
+
+.btn:hover {
+    background-color: var(--f-color-dark);
+    max-width: 12.5rem;
+    transition: 1s ease;
+}
+
+.btn:hover .icon {
+    fill: var(--white);
+}
+
+.icon{
+    fill: var(--grey-light);
+    cursor: pointer;
+    height: calc(1.6rem * var(--mult));
+    width: calc(1.6rem * var(--mult));
+}
+
+.btn > div {
+    flex: 0 0 35px;
+    font-size: 1.2rem;
+}
+
+.btn > p {
+    margin: 0;
+    flex: 1fr 0 35px;
+    font-size: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+@media only screen and (max-width: 720px) {
+    .btn {
+        max-width: 4rem;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .btn {
+        max-width: 3.5rem;
+    }
+
+    .btn > div {
+        flex: 0 0 25px;
+        font-size: 1.2rem;
+    }
+
+    .btn:hover {
+        max-width: 12rem;
+    }
+
+    .icon{
+        height: calc(1.2rem * var(--mult));
+        width: calc(1.2rem * var(--mult));
+    }
+}

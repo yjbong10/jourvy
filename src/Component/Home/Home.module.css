@@ -1,0 +1,22 @@
+@import '../../_Variables.css';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--grey-light);
+}
+
+
+.content {
+    height: calc(100vh - calc(5rem * var(--mult)));
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+@media only screen and (max-width: 740px) {
+    .content {
+        height: calc(100vh - 6rem);
+    }
+}

@@ -1,0 +1,276 @@
+// reset profile
+export const onResetProfile = (props) => {
+    props.setIsShow(false);
+    props.setProgress(10)
+    fetch('http://192.168.0.171:3001/profile/reset', {
+        method: 'put',
+        headers: {'Content-type': 'application/json'},
+        body: JSON.stringify({
+            email: props.email,
+            password: props.userPasswordInput
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data !== 'wrong password.') {
+            props.setProgress(100)
+            props.setIsShow(true);
+            props.setError(data)
+            props.history.push('/')
+
+        } else {
+            props.setProgress(70)
+            props.setIsShow(true);
+            props.setError('wrong password! Loging out...', 'warn')
+            setTimeout(() => {
+                props.history.push('/logout')
+                props.setProgress(100)
+            }, [3000])
+        }
+    })
+    .catch(err => {
+        props.setProgress(100)
+        props.setIsShow(true);
+        props.setError(err, 'warn')
+    })
+    props.setProgress(60)
+}
+
+
+
+
+// change password
+export const onChangePassword = (props) => {
+    props.setIsShow(false);
+    props.setProgress(10)
+    fetch('http://192.168.0.171:3001/account/edit/password', {
+        method: 'put',
+        headers: {'Content-type': 'application/json'},
+        body: JSON.stringify({
+            email: props.email,
+            password: props.userPasswordInput,
+            newPassword: props.userNewPasswordInput
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if( data === 'user password has been successfuly changed.' ) {
+  
+            props.setProgress(70)
+            props.setIsShow(true);
+            props.setError(data)
+            setTimeout(() => {
+                props.history.push('/logout')
+                props.setProgress(100)
+            }, [3000])
+
+        } else {
+            props.setIsShow(true);
+            props.setError(data, 'warn')
+        }
+
+    })
+    .catch(err => {
+        props.setProgress(100)
+        props.setIsShow(true);
+        props.setError(err, 'warn')
+    })
+    props.setProgress(60)
+}
+
+
+
+
+//change name
+export const onChangeName = (props) => {
+    props.setIsShow(false);
+    props.setProgress(10)
+    fetch('http://192.168.0.171:3001/account/edit/name', {
+        method: 'put',
+        headers: {'Content-type': 'application/json'},
+        body: JSON.stringify({
+            email: props.email,
+            name: props.userData.name,
+            newName: props.userNewNameInput
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.newName) {
+            props.setUserName(data.newName)
+            props.setOnEditAccount(false)
+            props.setProgress(100)
+        } else {
+            props.setIsShow(true);
+            props.setError(data, 'warn')
+            props.setProgress(100)
+        }
+    })
+    .catch(err => {
+        props.setIsShow(true);
+        props.setError(err, 'warn')
+        props.setProgress(100)
+    })
+    props.setProgress(60)
+}
+
+
+
+
+//delete account
+export const onDeleteAccount = (props) => {
+    props.setIsShow(false);
+    props.setProgress(10)
+    fetch('http://192.168.0.171:3001/account/delete', {
+        method: 'delete',
+        headers: {'Content-type': 'application/json'},
+        body: JSON.stringify({
+            email: props.email,
+            password: props.userPasswordInput
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        props.setProgress(70)
+        props.setIsShow(true);
+        props.setError(data)
+        setTimeout(() => {
+            props.history.push('/logout')
+            props.setProgress(100)
+        }, [3000])
+    })
+    .catch(err => {
+        props.setIsShow(true);
+        props.setError(err, 'warn')
+        props.setProgress(100)
+    })
+    props.setProgress(60)
+}
+
+
+
+
+// location verify
+export const locationVerify = (props) => {
+    props.setIsShow(false)
+    props.setProgress(10)
+    const { city, lat, lon } = props.userInfoInput
+    const previousCity  = props.weatherInfo.location.city
+
+    fetch('http://192.168.0.171:3001/weather', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+          lat: lat|| null,
+          lon: lon || null,
+          city: city || null
+      })
+  })
+    .then(res => res.json())
+    .then(data => {
+      if(data.weather){
+        const { id, main, description } = data.weather[0]
+        const { temp, feels_like, temp_min, temp_max } = data.main
+        const { country } = data.sys
+        const city = data.name
+        props.setWeatherInfo(id, main, temp, feels_like, temp_min, temp_max, description, country, city)
+        props.setIsShow(true)
+        props.setError(`location is set to ${city}.`)
+        if (props.userInfoInput.city) {
+            props.setCity(city)
+
+        } else if (props.userInfoInput.lat && props.userInfoInput.lon) {
+            props.setGeolocation(props.userInfoInput.lat, props.userInfoInput.lon)
+        }
+      } else {
+        props.setIsShow(true)
+        props.setError('location not found.', 'warn')
+        // props.setIsAutoLocation(true)
+        props.setCityInput(previousCity)
+        props.setCity(previousCity)
+      }
+    props.setProgress(100)
+    }) 
+    .catch(err => {
+      props.setIsShow(true)
+      props.setError('something is wrong. :(', 'warn')
+      props.setProgress(100)
+    }) 
+  props.setProgress(50)
+}
+
+
+// save default settings 
+export const saveDefault = (props) => {
+    props.setIsShow(false)
+    props.setProgress(10)
+
+    const { city, lat, lon } = props.userInfoInput
+    const { auto } = props.userInfo.location
+    const method = !props.userInfo.location.method.byCity
+    const previousCity  = props.weatherInfo.location.city
+
+
+    fetch('http://192.168.0.171:3001/weather', {
+        method: 'post',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            lat: lat|| null,
+            lon: lon || null,
+            city: city || null
+        })
+    }).then(res => res.json())
+    .then(data => {
+        if(data.weather) {
+            props.setProgress(40)
+            return data
+        } else {
+            if(auto) {
+                return data
+            } else {
+                props.setCityInput(previousCity)
+                props.setCity(previousCity)
+                throw new Error ('location not found.')
+            }
+        }
+    })
+    .then(data => {
+        props.setProgress(60)
+        fetch('http://192.168.0.171:3001/settings', {
+            method: 'put',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                email: props.email,
+                isNightMode: props.isNightMode, 
+                islocationAuto: auto,
+                locationMethod: method,
+                city: city,
+                lat: lat,
+                lon: lon
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.settings_id) {
+                props.setIsShow(true)
+                props.setError(`settings is saved.`)
+                props.history.push('/')
+            } else {
+                props.setIsShow(true)
+                props.setError(data.message, 'warn')
+            }
+            props.setProgress(100)
+        })
+        .catch(err => {
+            console.log(err)
+            props.setProgress(100)
+        })
+        props.setProgress(80)
+    })
+    .catch(err => {
+        props.setIsShow(true)
+        props.setError(err.message, 'warn')
+        props.setProgress(100)
+    })
+    props.setProgress(50)
+} 

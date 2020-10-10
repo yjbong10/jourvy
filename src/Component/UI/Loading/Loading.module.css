@@ -1,0 +1,13 @@
+.loading {
+    height: 5rem;
+    width: 5rem;
+    fill: var(--s-color);
+    animation: rotate 2s cubic-bezier(.45,.17,0,.85) infinite;
+}
+
+
+@keyframes rotate {
+    100% {
+        transform: rotateZ(360deg);
+    }
+}

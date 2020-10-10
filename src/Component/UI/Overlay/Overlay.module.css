@@ -1,0 +1,22 @@
+.overlay::after {
+    content: "";
+    position: absolute;
+    top: 0rem;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(120deg, black, var(--p-color));
+    opacity: .7;
+    z-index: 700;
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: .7}
+}
+
+@keyframes fadeOut {
+    from {opacity: .7} 
+    to {opacity: 0}
+}

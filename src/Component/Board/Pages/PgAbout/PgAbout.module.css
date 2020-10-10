@@ -1,0 +1,22 @@
+.container {
+    height: 100%;
+    width: 100%;
+    background-color: var(--grey-dark);
+    
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: minmax(500px, 1fr);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    box-shadow: 3px 3px 8.25px 6.25px rgba(39, 36, 31, 0.5);
+}
+
+@media only screen and (max-width: 350px) {
+    .container {
+        grid-template-rows: repeat(2, minmax(min-content, 1fr));
+    }
+}

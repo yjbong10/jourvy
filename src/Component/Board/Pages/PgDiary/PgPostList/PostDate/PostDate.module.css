@@ -1,0 +1,23 @@
+.postDate {
+    background: var(--post-date-bg);
+    grid-column: 1 / 2;
+    border-radius: calc(10px * var(--mult));
+    width: calc(60px * var(--mult));
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow:  1.8px 1.8px 3.75px #6468694d;
+
+    color: var(--s-font)
+}
+
+.postDay {
+    margin: 0;
+}
+
+.postMonth {
+    margin: 0;
+}

@@ -1,0 +1,9 @@
+@import '../../_Variables.css';
+
+.board {
+    background: var(--grey-light); 
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative; /*for info card*/
+}

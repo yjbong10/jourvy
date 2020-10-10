@@ -1,0 +1,14 @@
+.inputContainer {
+    font-size: 1.3rem;
+    text-transform: capitalize;
+}
+
+.currentName {
+    text-align: center;
+}
+
+@media only screen and (max-width: 1050px) {
+    .inputContainer {
+        padding: 0 1rem;
+    }
+}

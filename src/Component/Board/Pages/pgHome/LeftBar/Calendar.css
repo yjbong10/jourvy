@@ -1,0 +1,153 @@
+.react-calendar {
+  width: 90%;
+  max-width: 100%;
+  background: rgba(245, 222, 179, 0.1);
+  line-height: 1.125rem;
+  z-index: 2;
+  user-select: none;
+  min-height: min-content;
+  max-height: 40%;
+}
+.react-calendar--doubleView {
+  width: calc(70rem * var(--mult));;
+}
+.react-calendar--doubleView .react-calendar__viewContainer {
+  display: flex;
+  margin: calc(-0.5rem * var(--mult));
+}
+.react-calendar--doubleView .react-calendar__viewContainer > * {
+  width: 50%;
+  margin: calc(.5rem * var(--mult));
+}
+.react-calendar,
+.react-calendar *,
+.react-calendar *:before,
+.react-calendar *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.react-calendar button {
+  margin: 0;
+  border: 0;
+  outline: none;
+}
+.react-calendar button:enabled:hover {
+  cursor: pointer;
+}
+.react-calendar__navigation {
+  height: calc(4rem * var(--mult));
+  margin-bottom: calc(1rem * var(--mult));
+}
+.react-calendar__navigation button {
+  min-width: calc(4rem * var(--mult));
+  background: var(--p-color);
+  color: var(--s-color-dark)
+}
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: var(--p-color-dark);
+}
+.react-calendar__navigation button[disabled] {
+  background-color: var(--f-color);
+  color: var(--p-color-dark)
+}
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: calc(.75rem * var(--mult));
+}
+.react-calendar__month-view__weekdays__weekday {
+  color: var(--s-color);
+}
+
+.react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration-line: underline !important;
+  text-decoration-style: solid;
+}
+
+.react-calendar__month-view__weekNumbers {
+  font-weight: bold;
+}
+.react-calendar__month-view__weekNumbers .react-calendar__tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(.75rem * var(--mult));
+  padding: calc(0.75rem / 0.95) calc(0.5rem / 0.75);
+}
+
+.react-calendar__month-view__days__day {
+  color: var(--white);
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: var(--t-color-dark)
+}
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: var(--f-color);
+  opacity: 0.8;
+  font-style: italic;
+}
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+  padding: calc(1.1rem * var(--mult)) calc(.5rem * var(--mult));
+  font-size: calc(1.2rem * var(--mult));
+  color: var(--s-color)
+}
+.react-calendar__tile {
+  max-width: 100%;
+  text-align: center;
+  padding: calc(.75rem * var(--mult)) calc(.5rem * var(--mult));
+  background: none;
+}
+.react-calendar__tile:disabled {
+  background-color: green;
+}
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: var(--grey-light);
+  color: var(--p-color-dark);
+  opacity: 1;
+}
+.react-calendar__tile--now {
+  background: #ffff76;
+  color: var(--p-color-dark) !important;
+}
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background: #ffffa9;
+}
+.react-calendar__tile--hasActive {
+  background: var(--grey-light);
+  color: var(--p-color-dark) !important;
+}
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+  background: var(--t-color-dark);
+}
+.react-calendar__tile--active {
+  background: var(--f-color);
+  color: var(--p-color-dark);
+}
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: var(--f-color);
+}
+.react-calendar--selectRange .react-calendar__tile--hover {
+  background-color: #db2323;
+}
+
+@media only screen and (max-width: 740px) {
+  .react-calendar__month-view__weekdays {
+    font-size: 1rem
+  }
+
+  .react-calendar__month-view__days__day,
+  .react-calendar__month-view__days__day--weekend, 
+  .react-calendar__month-view__days__day--neighboringMonth {
+    font-size: 1.3rem;
+  }
+}

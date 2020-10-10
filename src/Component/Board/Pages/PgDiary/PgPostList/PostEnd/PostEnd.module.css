@@ -1,0 +1,16 @@
+.postEnd {
+    grid-column: 1 / 7;
+    /*350 postcard + 16 datecard + 1.5gridgap*/
+    /* min-width: calc(calc(350px + 60px + 1.5rem) * var(--mult));  */
+    height: calc(40px * var(--mult));
+    text-align: center;
+    border-radius: calc(5px * var(--mult));
+    color: var(--black)
+}
+
+@media only screen and (max-width: 740px) {
+    .postEnd {
+        min-width: calc(calc(2rem * var(--mult)) + calc(60px * var(--mult) + 200px));
+        /*2rem for padding-right and grid gap, 60px for postDate, 200px for postCard*/
+    }
+}

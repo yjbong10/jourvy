@@ -1,0 +1,168 @@
+.page2{
+    grid-column: 1 / 13;
+    grid-row: 1 / 2;
+
+    background: black;
+    border-top-right-radius: calc(5rem * var(--mult));
+    border-bottom-right-radius: calc(5rem * var(--mult));
+
+    overflow: hidden;
+
+    z-index: 3;
+    text-align: end;
+
+    opacity: 1;
+    width: 100%;
+    transition: all 3s cubic-bezier(.25,0,0,.98);
+    position: relative;
+}
+
+.page2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    background: url('../../pgHome/sun.jpg')
+    no-repeat center center;
+    object-fit: cover;
+    background-size: cover;
+
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+
+    z-index: -1;
+
+    opacity: 95%;
+    transition: all 2s ease;
+}
+
+.page2:hover::after {
+    opacity: 35%;
+    transition: all 6s ease 1s;
+}
+
+.pg2_hide {
+    opacity: 1;
+    width: 0%;
+    transition: all 3s cubic-bezier(.25,0,0,.98);
+}
+
+
+/*content*/
+
+.container {
+    height: 100%;
+    width: 100%;
+    min-width: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    padding: 5rem 15rem;
+
+    color: var(--s-font);
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 3s ease;
+}
+
+.container_hide {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: all 1s ease;
+}
+
+.pg2_title {
+    opacity: 0;
+    transform: translateY(2rem);
+    animation: fade 3s ease 2s forwards;
+    font-size: 2.2rem;
+}
+
+.pg2_content {
+    opacity: 0;
+    transform: translateY(2rem);
+    animation: fade 3s ease 2s forwards;
+    font-weight: lighter;
+    font-size: 1.6rem;
+    text-align: justify;
+
+    /* set to scroll if neccessary */
+    overflow-y: scroll; 
+    overflow-x: hidden;
+    padding: 0 1rem;
+}
+
+.contact {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+@keyframes fade {
+    100% {
+        opacity: 1;
+        transform: translateY(0rem);
+    }
+}
+
+@media only screen and (max-width: 740px) {
+    .container {
+        padding: 5rem 3rem;
+    }
+
+    .pg2_title {
+        font-size: 2rem;
+    }
+
+    .pg2_content {
+        font-size: 1.4rem;
+    }
+
+}
+
+@media only screen and (max-width: 350px) {
+    .page2{
+        grid-column: 1 / 13;
+        grid-row: 2 / 3;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .pg2_hide {
+        opacity: 1;
+        width: 100%;
+        transition: all 3s cubic-bezier(.25,0,0,.98);
+    }
+
+    .pg2_title {
+        font-size: 1.8rem;
+    }
+
+    .pg2_content {
+        font-size: 1.2rem;
+    }
+
+    .container_hide {
+        opacity: 1;
+        transform: translateY(2rem);
+        transition: all 1s ease;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .container {
+        padding: 5rem 1rem;
+    }
+
+    .pg2_content {
+    /* set to scroll if neccessary */
+    overflow-y: hidden; 
+    overflow-x: hidden;
+    }
+}

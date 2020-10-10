@@ -1,0 +1,53 @@
+.btn {
+    border: none;
+    background-color: var(--p-color);
+    opacity: .3;
+
+    height: 3rem;
+    width: 11rem;
+    cursor: pointer;
+    text-align: center;
+
+    border-radius: 3px;
+    box-shadow:  1.5px 1.5px 3.25px #2e0a0a4d;
+    border: none;
+    outline: none;
+
+    color: var(--white);
+    transition: all .8s ease;
+}
+
+.btn:hover {
+    /* background-color: rgb(219, 126, 126); */
+    opacity: 1;
+}
+
+.cancel {
+    background-color: var(--prompt-btn-bg);
+    opacity: 1;
+}
+
+.cancel:hover {
+    background-color: var(--prompt-btn-hover-bg);
+}
+
+.submit {
+    background-color: var(--prompt-btn-bg);
+    opacity: 1;
+}
+
+.submit:hover {
+    background-color: var(--prompt-btn-hover-bg);
+}
+
+.cta {
+    background-color: var(--prompt-btn-hover-bg);
+    color: var(--white);
+    transform: translateY(0rem);
+    opacity: 1;
+}
+
+.cta:hover {
+    background-color: var(--prompt-btn-hover-bg);
+    transform: translateY(-.2rem);
+}

@@ -1,0 +1,78 @@
+@import '../../_Variables.css';
+
+.header {
+    background: var(--p-color-dark);
+    width: 100%;
+    height: calc(5rem * var(--mult));
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 calc(4rem * var(--mult));
+    z-index: 1000;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.header::-webkit-scrollbar {
+    display: none;
+}
+
+.logo {
+    font-size: calc(2.5rem * var(--mult));
+    color: white;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    min-width: calc(7rem * var(--mult));
+}
+
+/*/v/ these are for user icon, night-mode, nortification, user icon */
+/* this select first icon to the right, 
+negtive margin left so that it wont make search bar move to the left
+when increasing the margin among icons*/
+.user > :nth-child(1) {
+    margin-left: -5rem;
+}
+
+/* this select the middle icons and increase the side margin of it*/
+.user > :nth-child(2) {
+    margin: 0 4rem;
+}
+/*/^/ these are for user icon, night-mode, nortification, user icon */
+
+
+@media only screen and (max-width: 740px) {
+    .header {
+        flex-direction: row;
+        padding: 0 2rem;
+        height: 6rem;
+        position: relative;
+    }
+
+    .user {
+        min-width: 6rem;
+    }
+
+    .user > :nth-child(1) {
+        margin-left: 0rem;
+    }
+    
+    .user > :nth-child(2) {
+        margin: 0 2rem;
+    }
+
+    .logo {
+        display: none;
+    } 
+}
+
+@media only screen and (max-width: 300px) {
+    .user {
+        display: none;
+    }
+}

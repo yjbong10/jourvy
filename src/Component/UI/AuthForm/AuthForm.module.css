@@ -1,0 +1,41 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    
+    height: auto;
+    min-width: min-content; /**/
+
+    background-color: var(--white);
+    box-shadow: -2px 2px 19px 0px rgba(0,0,0,0.2);
+    opacity: 0.95;
+
+    position: relative;
+}
+
+.form:focus-within{
+    opacity: 1;
+}
+
+.footer {
+    display: none
+}
+
+@media only screen and (max-width: 380px) {
+    .form {
+        min-height: 33rem;
+        align-self: center;
+        padding: 3rem;
+    }
+
+    .footer {
+        display: block;
+        position: absolute;
+        bottom: 1rem;
+        /* right: auto; */
+        left: 0;
+        font-size: .9rem;
+        text-align: center;
+        width: 100%;
+    }
+}

@@ -1,0 +1,48 @@
+.arrow_icon {
+    align-self: end;
+    height: calc(2.75rem * var(--mult));
+    width: calc(2.75rem * var(--mult));
+    padding: calc(.5rem * var(--mult));
+    transform: rotate(0deg);
+    transition: all 1s ease;
+    border-radius: 50%;
+    fill: white;
+    background-color: tomato;
+    cursor: pointer;
+
+    box-shadow: 0 12.5px 25px rgba(0,0,0,0.2), 0 7.5px 7.5px rgba(0,0,0,0.2);
+}
+
+.arrow_icon:hover{
+    transform: scale(1.03);
+    background-color: rgb(226, 73, 46);
+}
+
+.white {
+    fill: white;
+}
+
+.tomato {
+    background-color: tomato;
+}
+
+.icon_btn{
+    border: none;
+    outline: none;
+    border-radius: 100%;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--grey-light);
+}
+
+@media only screen and (max-width: 740px) {
+    .arrow_icon {
+        height: calc(2rem * var(--mult));
+        width: calc(2rem * var(--mult));
+        padding: calc(.2rem * var(--mult));
+    }
+}

@@ -1,0 +1,204 @@
+.page1{
+    grid-column: 1 / 9;
+    grid-row: 1 / 2;
+    z-index: 4;
+
+    height: 100%;
+    background: black;
+    border-top-right-radius: calc(3rem * var(--mult));
+    border-bottom-right-radius: calc(3rem * var(--mult));
+    position: relative;
+    text-align: center;
+
+    opacity: 1;
+    color: var(--white);
+    
+    width: 100%;
+    transition: all 3s cubic-bezier(.25,0,0,.98);
+
+    padding: 5rem 7rem;
+}
+
+.page1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    background: url('.././img/adult-1850177_1920.jpg')
+    no-repeat top center;
+    object-fit: cover;
+    background-size: cover;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+
+    z-index: -1;
+    opacity: 95%;
+    transition: opacity 3s ease;
+}
+
+.page1:hover::after {
+    opacity: 20%;
+    transition: opacity 6s ease;
+}
+
+.pg1_hide {
+    width: 0%;
+    opacity: 1;
+    padding: 0rem 0rem;
+    transition: all 3s cubic-bezier(.25,0,0,.98);
+}
+
+.shadow {
+    box-shadow: 3px 3px 8.25px 6.25px rgba(39, 36, 31, 0.5);
+}
+
+
+
+
+
+/* content */
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    opacity: 1;
+    transform: translateY(0rem);
+    transition: all .5s ease-in 2.5s;
+}
+
+.pg1_title {
+    opacity: 0;
+    transform: translateY(2rem);
+    animation: fade 3s ease 2s forwards;
+    font-size: 2.2rem;
+}
+
+.pg1_content {
+    opacity: 0;
+    transform: translateY(2rem);
+    animation: fade 3s ease 2s forwards;
+    font-weight: lighter;
+    font-size: 1.6rem;
+    text-align: justify;
+
+    /* set to scroll if neccessary */
+    overflow-y: hidden; 
+    overflow-x: hidden;
+    padding: 0 1rem;
+}
+
+@keyframes fade {
+    100% {
+        opacity: 1;
+        transform: translateY(0rem);
+    }
+}
+
+
+
+/* collapse button */
+.Btn_positon {
+    position: absolute;
+    top: calc(50% - calc(2.75rem * var(--mult) / 2 ));
+    left: 98%;
+    z-index: 10;
+} 
+
+.Btn_fixed {
+    /* position: fixed; */
+    transition: all 1s cubic-bezier(.25,0,0,.98);
+    transform: rotate(180deg);
+    opacity: 0;
+    animation: btnFade 5s ease forwards .5s;
+} 
+
+@keyframes btnFade {
+    100% {
+        opacity: 1;
+    }
+}
+
+.Btn_rotate {
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+.collapse{
+    opacity: .4;
+    width: 5%;
+    z-index: 1001;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    padding: 0rem 0rem;
+    z-index: 101;
+}
+ 
+.container_collapse {
+    opacity: 0;
+    transition: all .3s ease;
+}
+
+
+
+@media only screen and (max-width: 740px) {
+    .page1{
+        grid-column: 1 / 11;
+        grid-row: 1 / 2;
+        padding: 5rem 3rem;
+    }
+
+    .pg1_title {
+        font-size: 2rem;
+    }
+
+    .pg1_content {
+        font-size: 1.4rem;
+    }
+
+    .Btn_positon {
+        position: absolute;
+        top: calc(50% - calc(2rem * var(--mult) / 2));
+        left: 98%;
+    } 
+}
+
+@media only screen and (max-width: 350px) {
+    .page1{
+        grid-column: 1 / 13;
+        grid-row: 1 / 2;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        padding: 5rem 1rem;
+    }
+
+    .page1::after {
+        background-attachment: fixed;
+    }
+
+    .pg1_hide {
+        width: 100%;
+        opacity: 1;
+        transition: all 3s cubic-bezier(.25,0,0,.98);
+    }
+
+    .pg1_title {
+        font-size: 1.8rem;
+    }
+
+    .pg1_content {
+        font-size: 1.2rem;
+    }
+
+    .Btn_positon {
+        display: none;
+    } 
+}

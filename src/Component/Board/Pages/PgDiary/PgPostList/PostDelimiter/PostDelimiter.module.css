@@ -1,0 +1,21 @@
+.postDelimiter {
+    grid-column: 1 / 7;
+    margin: 0;
+    font-size: calc(1.5rem * var(--mult));
+    height: max-content;
+    min-height: min-content;
+    color: var(--black);
+}
+
+@media only screen and (max-width: 740px) {
+    .postDelimiter p {
+        font-size: 1.5rem;
+        /*not sure why i did this :( */
+        min-width: calc(35px * var(--mult));
+    }
+
+    .postDelimiter {
+        min-width: calc(calc(2rem * var(--mult)) + calc(60px * var(--mult) + 200px))
+    }
+}
+  

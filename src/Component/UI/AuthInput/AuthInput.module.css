@@ -1,0 +1,21 @@
+.input {
+    margin: .5rem 0rem 0.75rem 0rem;
+    padding: .75rem;
+    min-width: 20rem;
+
+    background-color: var(--s-color-dark);
+}
+
+.input,
+.input:focus {
+    outline: none;
+    border: none
+}
+
+.input:focus{
+    background-color: var(--t-color-dark);
+}
+
+.notValid:focus {
+    background-color: var(--f-color-dark);
+}

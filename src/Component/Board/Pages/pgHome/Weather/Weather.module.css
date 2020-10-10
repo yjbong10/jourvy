@@ -1,0 +1,287 @@
+.container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(.5rem);
+    animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+    100% {
+        opacity: 1;
+        transform: translateY(0rem);
+    }
+}
+
+.title {
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.text {
+    padding-top: 0rem;
+    text-transform: capitalize;
+}
+
+.invisible {
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+}
+
+.invisible, .visible {
+    transition: all 1s ease;
+}
+
+.title:hover .invisible {
+    top: 0;
+    transition: all 1s ease .2s;
+    opacity: 1;
+}
+
+.title:hover .visible {
+    transition: all 1s ease;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.city {
+    margin-top: -1rem;   
+}
+
+/*icon and animation*/
+
+.sun_icon {
+    align-self: end;
+    height: calc(5rem * var(--mult));
+    width: calc(5rem * var(--mult));
+    fill: var(--white);
+    transform: rotate(0deg);
+    transition: transform 1s ease;
+}
+
+.container:hover .sun_icon{
+    transform: rotate(200deg);
+    transition: all 5s ease;
+}
+
+.rain_icon {
+    align-self: end;
+    height: calc(5rem * var(--mult));
+    width: calc(5rem * var(--mult));
+    fill: var(--white);
+    transform: rotate(0deg);
+    transition: all 1s ease;
+}
+
+.container:hover .rain_icon{
+    animation: upDown 5s cubic-bezier(.23,.56,.61,1.24) infinite;
+}
+
+@keyframes upDown {
+    0% {
+        transform: translateY(0px);
+    }
+
+    25% {
+        transform: translateY(10px);
+    }
+
+    75% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.cloud_icon {
+    align-self: end;
+    height: calc(5rem * var(--mult));
+    width: calc(5rem * var(--mult));
+    fill: var(--white);
+    transform: rotate(0deg);
+    transition: all 1s ease;
+}
+
+.container:hover .cloud_icon{
+    animation: leftRight 8s cubic-bezier(.4,.01,.54,1) infinite;
+}
+
+@keyframes leftRight {
+    0% {
+        transform: translateX(0px);
+    }
+
+    25% {
+        transform: translateX(30px);
+    }
+
+    75% {
+        transform: translateX(-30px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.wind_icon {
+    align-self: end;
+    height: calc(5rem * var(--mult));
+    width: calc(5rem * var(--mult));
+    fill: var(--white);
+    transform: rotate(0deg);
+    transition: all 1s ease;
+}
+
+.container:hover .wind_icon{
+    animation: wind 2.5s cubic-bezier(.4,.01,.54,1) infinite;
+}
+
+@keyframes wind {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    25% {
+        transform: translate(30px, -1px);
+    }
+
+    75% {
+        transform: translate(-30px, 2px);
+    }
+
+    100% {
+        transform: translateX(0px, 0px);
+    }
+}
+
+.thunderstorm_icon {
+    align-self: end;
+    height: calc(5rem * var(--mult));
+    width: calc(5rem * var(--mult));
+    fill: var(--white);
+    transform: rotate(0deg);
+    transition: all 1s ease;
+}
+
+.container:hover .thunderstorm_icon{
+    animation: wiggle 0.3s linear infinite both;
+}
+
+@keyframes wiggle {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(-2px, -2px);
+    }
+    60% {
+        transform: translate(2px, 2px);
+    }
+    80% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(0);
+    }
+  }
+
+  .snow_icon {
+    align-self: end;
+    height: calc(5rem * var(--mult));
+    width: calc(5rem * var(--mult));
+    fill: var(--white);
+    transform: rotate(0deg);
+    transition: all 1s ease;
+}
+
+.container:hover .snow_icon{
+    animation: upDown 10s cubic-bezier(.23,.56,.61,1.24) infinite;
+}
+
+@keyframes upDown {
+    0% {
+        transform: translateY(0px);
+    }
+
+    25% {
+        transform: translateY(10px);
+    }
+
+    75% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.cloud_icon {
+    align-self: end;
+    height: calc(5rem * var(--mult));
+    width: calc(5rem * var(--mult));
+    fill: var(--white);
+    transform: rotate(0deg);
+    transition: all 1s ease;
+}
+
+.container:hover .cloud_icon{
+    animation: leftRight 15s cubic-bezier(.4,.01,.54,1) infinite;
+}
+
+@keyframes leftRight {
+    0% {
+        transform: translateX(0px);
+    }
+
+    25% {
+        transform: translateX(20px);
+    }
+
+    75% {
+        transform: translateX(-20px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+
+@media only screen and (max-width: 1050px) {
+    .title {
+        align-self: start;
+        padding: .5rem 0;
+        line-height: calc(1rem * var(--mult));
+        user-select: none;
+    }
+    .visible {
+        padding-bottom: .5rem;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .title {
+        padding-top: 0;
+        padding-bottom: 3rem
+    }
+}

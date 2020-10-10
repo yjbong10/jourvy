@@ -1,0 +1,53 @@
+.icon, .icon_sm, .icon_lg, .menu_icon {
+    fill: var(--header-light);
+    cursor: pointer;
+    height: calc(2rem * var(--mult));
+    width: calc(2rem * var(--mult));
+}
+
+.icon_lg {
+    height: calc(6rem * var(--mult));
+    width: calc(6rem * var(--mult));
+}
+
+.icon_sm {
+    height: calc(1.6rem * var(--mult));
+    width: calc(1.6rem * var(--mult));
+}
+
+.search_icon {
+    height: calc(1.9rem * var(--mult));
+    width: calc(1.6rem * var(--mult));
+    fill: var(--p-color);
+}
+
+.menu_icon {
+    margin: 0rem;
+    display: none;
+}
+
+
+@media only screen and (max-width: 740px) {
+    .icon {
+        fill: var(--grey-light);
+        cursor: pointer;
+        height: 1.7rem;
+        width: 1.7rem;
+    }
+
+    .icon_sm {
+        height: 1.4rem;
+        width: 1.4rem;
+    }    
+
+    .menu_icon {
+        display: inline-block;
+        height: 1.7rem;
+        min-width: 1.7rem;
+    }
+
+    .icon_lg {
+        height: calc(3rem * var(--mult));
+        width: calc(3rem * var(--mult));
+    }
+}

@@ -1,0 +1,132 @@
+.search {
+    display: flex;
+    flex-direction: row;
+    flex: 0 0 50%;
+    justify-content: center;
+    min-width: 15rem;
+}
+
+.search input {
+    outline: none;
+    border: none;
+    border-radius: calc(10rem * var(--mult));
+
+    margin-right: calc(-3rem * var(--mult));
+
+    background-color: var(--header-light);
+    
+    padding: calc(.5rem * var(--mult)) calc(2rem * var(--mult));
+    width: 80%;
+    transition: 0.3s ease;
+}
+
+.search input:focus {
+    background-color: var(--header-light);
+    width: 90%;
+    transition: 0.3s ease;
+    opacity: 1;
+}
+
+.search_btn {
+    border: none;
+    outline: none;
+    border-radius: 100%;
+    pointer-events: none;
+    cursor: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    z-index: 10;
+}
+
+@media only screen and (max-width: 740px) {
+    .search {
+        flex: 0 0 50%;
+    }    
+
+    .search input {
+        padding: .5rem 2rem;
+        width: 100%;
+        transition: 0.3s ease;
+    }
+    
+    .search input:focus {
+        flex: 0 0 95vw;
+        transition: 0.3s ease;
+        animation: left 0.1s forwards;
+    }
+
+    @keyframes left{
+        100% {
+            /* transform: translate(1.6rem); */
+            transform: translate(2.6rem);
+        }
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .search {
+        flex: 0 0 80%;
+        margin: .5rem;
+    }    
+
+    .search input {
+        padding: .5rem 2rem;
+        width: 100%;
+        transition: 0.3s ease;
+    }
+    
+    .search input:focus {
+        flex: 0 0 95vw;
+        transition: 0.3s ease;
+        transform: translate(0);
+        animation: left 0.1s forwards;
+    }
+
+    .search input:focus + .search_btn {
+        animation: left 0.1s forwards;
+    }
+
+    @keyframes left{
+        100% {
+            /* transform: translate(-2rem); */
+            transform: translate(-2rem);
+        }
+    }
+
+    .user {
+        display: none;
+    }
+}
+
+
+@media only screen and (max-width: 210px) {
+
+    .search {
+        flex: 0 0 80%;
+        margin: .5rem;
+    }    
+
+    .search input {
+        padding: .5rem 2rem;
+        width: 100%;
+        transition: 0.3s ease;
+    }
+
+    .search input:focus {
+        flex: 0 0 100%;
+        transition: 0.3s ease;
+        /* transform: translate(0); */
+        /* animation: left 0.1s forwards; */
+    }
+
+    @keyframes left{
+        100% {
+            /* transform: translate(-2rem); */
+            transform: translate(0rem);
+        }
+    }
+}

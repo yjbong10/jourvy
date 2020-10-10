@@ -1,0 +1,71 @@
+.toolbar {
+    background-color: none;
+    border-bottom: 1.25px rgba(119, 116, 116, 0.384) solid;
+    height: calc(50px * var(--mult));
+    grid-area: 1 / 7 / 1 / 1;
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-content: center; 
+}
+
+.item1, .item2, .item3 {
+    flex: 0 30px 1fr;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.item2 {
+    justify-content: center;
+}
+.item3 {
+    justify-content: flex-end;
+    opacity: 1;
+}
+
+.toolbar_icon {
+    height: calc(35px * var(--mult));
+    width: calc(35px * var(--mult));
+    padding: calc(5px * var(--mult));
+
+    fill: var(--p-color);
+    transition: all 0.6s ease-in-out;
+    background-color: var(--toolbar-btn-bg);
+    border-radius: calc(10px * var(--mult));
+    margin: 0 calc(1rem * var(--mult));
+    box-shadow:  1px 1px 2px 1px var(--toolbar-btn-sd), 
+                -1px -1px 2px 1px var(--grey-light);
+    cursor: pointer;
+}
+
+.toolbar_icon:hover {
+    fill: var(--p-color-dark);
+}
+
+.disable {
+    fill: var(--grey-light);
+    transform: translateY(3.75px);
+    opacity: 0.4;
+    pointer-events: none;
+    transition: all 0.7s ease-in-out;
+    box-shadow:  0px 0px 1.25px 1.25px rgba(0, 0, 0, 0.178), 
+    -.6.25px -.6.25px 1.25px 1.25px var(--grey-light);
+}
+
+@media only screen and (max-width: 740px) {
+    .toolbar {
+        min-width: calc(calc(2rem * var(--mult)) + calc(60px * var(--mult) + 200px));
+        /*2rem for padding-right and grid gap, 60px for postDate, 200px for postCard*/
+    }
+    
+    .toolbar_icon{
+        height: 28px;
+        width: 28px;
+        padding: 5px;
+        border-radius: 5px;
+        margin: 0 .7rem;
+    }
+  }
