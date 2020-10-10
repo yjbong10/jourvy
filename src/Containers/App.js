@@ -18,8 +18,7 @@ const App = (props) => {
         if (data.id) {
             props.setIsLogin(id, name, email, joined)
         } else {
-            props.setIsShow(true)
-            props.setError(data)
+            console.log(data) //welcome!!
         }
       props.setProgress(100)
       })
