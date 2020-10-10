@@ -35,12 +35,12 @@
 
     z-index: -1;
 
-    opacity: 95%;
+    opacity: .95;
     transition: all 2s ease;
 }
 
 .page2:hover::after {
-    opacity: 35%;
+    opacity: .35;
     transition: all 6s ease 1s;
 }
 
