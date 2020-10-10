@@ -59,7 +59,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
       setIsLogin: (id, name, email, joined) => dispatch(setIsLogIn(id, name, email, joined)),
-      setProgress: (num) => dispatch(setProgress(num))
+      setProgress: (num) => dispatch(setProgress(num)),
+      setError: (error, status) => dispatch(setError(error, status)),
+      setIsShow: (status) => dispatch(setIsShow(status))
   }
 }
 
