@@ -25,7 +25,7 @@
     height: 100%;
     width: 100%;
 
-    background: url('../../pgHome/sun.jpg')
+    background: url('../../pgHome/assets/sun_compressed.jpg')
     no-repeat center center;
     object-fit: cover;
     background-size: cover;
