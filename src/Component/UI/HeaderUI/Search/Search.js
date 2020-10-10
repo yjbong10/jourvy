@@ -7,7 +7,7 @@ const Search = (props) => {
         <form className={css.search}>
             <input type="text" placeholder='Search Post' onChange={props.changed} value={props.searchValue} />
             <button className={css.search_btn}>
-                <HIcon name="#search" type="search" clicked={() => console.log('clicked')}/>
+                <HIcon name="#search" type="search"/>
             </button>
         </form>
     )

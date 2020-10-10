@@ -28,7 +28,8 @@ const LogOut = (props) => {
                 }
             })
             .catch(err => {
-                console.log(err)
+                props.setIsShow(true)
+                props.setError('something is wrong. :(', 'warn')
                 props.history.go(-1)
                 props.setProgress(100)
             })

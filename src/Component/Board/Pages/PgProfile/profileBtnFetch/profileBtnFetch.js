@@ -202,7 +202,6 @@ export const locationVerify = (props) => {
 
 // save default settings 
 export const saveDefault = (props) => {
-    console.log('in')
     props.setIsShow(false)
     props.setProgress(10)
 
@@ -223,23 +222,19 @@ export const saveDefault = (props) => {
     }).then(res => res.json())
     .then(data => {
         if(data.weather) {
-            console.log('weather Data')
             props.setProgress(40)
             return data
         } else {
             if(auto) {
-                console.log('weather no Data but auto')
                 return data
             } else {
                 props.setCityInput(previousCity)
                 props.setCity(previousCity)
-                console.log('location not found')
                 throw new Error ('location not found.')
             }
         }
     })
     .then(data => {
-        console.log('settings in')
         props.setProgress(60)
         fetch('https://jourvy-server.herokuapp.com/settings', {
             method: 'put',
@@ -256,27 +251,22 @@ export const saveDefault = (props) => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             if (data.settings_id) {
-                console.log('settings is saved')
                 props.setIsShow(true)
                 props.setError(`settings is saved.`)
                 props.history.push('/')
             } else {
-                console.log('no settings_id')
                 props.setIsShow(true)
                 props.setError(data.message, 'warn')
             }
             props.setProgress(100)
         })
         .catch(err => {
-            console.log(err)
             props.setProgress(100)
         })
         props.setProgress(80)
     })
     .catch(err => {
-        console.log('err', err.message)
         props.setIsShow(true)
         props.setError(err.message, 'warn')
         props.setProgress(100)

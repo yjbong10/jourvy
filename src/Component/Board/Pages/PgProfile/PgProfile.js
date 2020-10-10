@@ -55,13 +55,14 @@ const PgProfile = (props) => {
           const {total_posts, total_edits, total_deletes} = data
           props.setTotal(total_posts, total_edits, total_deletes)
         } else {
-          console.log(data)
+          props.setIsShow(true)
+          props.setError(data, 'warn')
         }
       })
       .catch(err => {
-        console.log(err)
+        props.setIsShow(true)
+        props.setError(err, 'warn')
       })
-
       // eslint-disable-next-line
   }, [])
 

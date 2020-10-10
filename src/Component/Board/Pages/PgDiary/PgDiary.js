@@ -8,7 +8,7 @@ import PgPost from './PgPost/PgPost';
 import PgCompose from './PgCompose/PgCompose';
 import PgEdit from './PgEdit/PgEdit';
 import { setUserPosts, clearSearchInput } from '../../../../store/action/post_action';
-import { setProgress, setIsLoad } from '../../../../store/action/ui_action';
+import { setProgress, setIsLoad, setIsShow, setError } from '../../../../store/action/ui_action';
 
 
 const PgDiary = (props) => {
@@ -27,13 +27,10 @@ const PgDiary = (props) => {
       .then(data => {
         if (data[0].id) {
           if(data[0].length !== props.posts.length) {
-            console.log('data updated')
             props.setUserPosts(data)
           }
-          console.log('data no updated')
         } else {
           props.setUserPosts([])
-          console.log(data)
         }
         props.setProgress(100)
         props.setIsLoad(false)
@@ -41,7 +38,8 @@ const PgDiary = (props) => {
       .catch(err => {
         props.setProgress(100)
         props.setIsLoad(false)
-        console.log(err)
+        props.setIsShow(true)
+        props.setError(err, 'warn')
       })
     props.setProgress(50)
       // eslint-disable-next-line
@@ -85,6 +83,8 @@ const mapDispatchToProps = (dispatch) => {
     setUserPosts: (posts) => dispatch(setUserPosts(posts)),
     setProgress: (num) => dispatch(setProgress(num)),
     setIsLoad: (status) => dispatch(setIsLoad(status)),
+    setError: (error, status) => dispatch(setError(error, status)),
+    setIsShow: (status) => dispatch(setIsShow(status)),
     clearSearchInput: () => dispatch(clearSearchInput())
   }
 }

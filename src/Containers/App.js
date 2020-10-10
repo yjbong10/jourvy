@@ -4,6 +4,7 @@ import Auth from './Auth/Auth';
 import Home from '../Component/Home/Home';
 import { setIsLogIn } from '../store/action/userAuth_action';
 import { setProgress } from '../store/action/ui_action';
+import { setIsShow, setError } from '../store/action/ui_action';
 import LoadingBar from 'react-top-loading-bar';
 
 const App = (props) => {
@@ -17,12 +18,14 @@ const App = (props) => {
         if (data.id) {
             props.setIsLogin(id, name, email, joined)
         } else {
-            console.log(data)
+            props.setIsShow(true)
+            props.setError(data)
         }
       props.setProgress(100)
       })
       .catch(err => {
-        console.log(err)
+        props.setIsShow(true)
+        props.setError('something is wrong. :(')
         props.setProgress(100)
       })
     props.setProgress(50)

@@ -100,7 +100,7 @@ const Auth = (props) => {
                     props.setIsRegister();
                     props.history.push('/login')
                 } else {
-                    props.setError(data); //show error msg from server
+                    props.setError('something is wrong :('); //show error msg from server
                     props.setIsShow(true);
                 }
                 props.setProgress(100);

@@ -31,7 +31,8 @@ const PgHome = (props) => {
         const city = data.name
         props.setWeatherInfo(id, main, temp, feels_like, temp_min, temp_max, description, country, city)
       } else {
-        console.log(data.message)
+        props.setIsShow(true)
+        props.setError(data.message, 'warn')
       }
     props.setProgress(100)
     props.setIsWeatherLoad(false)
