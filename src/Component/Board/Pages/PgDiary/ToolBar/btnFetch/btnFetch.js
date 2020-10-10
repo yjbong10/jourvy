@@ -102,7 +102,6 @@ export const onDeletePost = (props) => {
 
 //EDIT_USER_POST
 export const editPost = (props) => {
-    console.log('in')
     props.setIsShow(false);
     props.setProgress(10);
     const id = props.currentPost
@@ -116,7 +115,6 @@ export const editPost = (props) => {
         })
     }).then(res => res.json())
         .then(data => {
-            console.log(data)
             props.setProgress(60);
             if (data.id) {
                 props.setIsShow(true);
@@ -131,7 +129,6 @@ export const editPost = (props) => {
         props.setProgress(100);
         })
         .catch(err => {
-            console.log('wrong')
             props.setIsShow(true);
             props.setError('something is wrong. :(', 'warn')
             props.setProgress(100);
