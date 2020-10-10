@@ -17,7 +17,7 @@ const PgDiary = (props) => {
   useEffect(() => {
     props.setIsLoad(true)
     props.setProgress(10)
-    fetch('http://192.168.0.171:3001/diary', {
+    fetch('https://jourvy-server.herokuapp.com/diary', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({

@@ -2,7 +2,7 @@
 export const submitPost = (props) => {
     props.setIsShow(false);
     props.setProgress(10);
-    fetch('http://192.168.0.171:3001/diary/compose', {
+    fetch('https://jourvy-server.herokuapp.com/diary/compose', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -70,7 +70,7 @@ export const onDeletePost = (props) => {
     const id = props.currentPost
     props.setIsShow(false); 
     props.setProgress(10);
-    fetch('http://192.168.0.171:3001/diary/post/' + id, {
+    fetch('https://jourvy-server.herokuapp.com/diary/post/' + id, {
         method: 'delete',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -105,7 +105,7 @@ export const editPost = (props) => {
     props.setIsShow(false);
     props.setProgress(10);
     const id = props.currentPost
-    fetch('http://192.168.0.171:3001/diary/post/edit/' + id, {
+    fetch('https://jourvy-server.herokuapp.com/diary/post/edit/' + id, {
         method: 'put',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({

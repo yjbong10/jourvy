@@ -10,7 +10,7 @@ const App = (props) => {
 
   useEffect(() => {
     props.setProgress(10)
-    fetch('http://192.168.0.171:3001/', {credentials: 'include'})
+    fetch('https://jourvy-server.herokuapp.com/', {credentials: 'include'})
       .then(res => res.json())
       .then(data => {
         const {id, name, email, joined} = data;

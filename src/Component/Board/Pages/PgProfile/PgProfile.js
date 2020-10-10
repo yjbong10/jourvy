@@ -43,7 +43,7 @@ const PgProfile = (props) => {
 
   //this is to get profile stats
   useEffect(() => {
-    fetch('http://192.168.0.171:3001/profile', {
+    fetch('https://jourvy-server.herokuapp.com/profile', {
       method: 'post',
       headers: {'Content-type': 'application/json'},
       body: JSON.stringify({
