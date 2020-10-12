@@ -43,7 +43,7 @@ const PgProfile = (props) => {
 
   //this is to get profile stats
   useEffect(() => {
-    fetch('http://192.168.0.171:3001/profile', {
+    fetch('https://jourvy-server.herokuapp.com/profile', {
       method: 'post',
       headers: {'Content-type': 'application/json'},
       body: JSON.stringify({
@@ -55,13 +55,14 @@ const PgProfile = (props) => {
           const {total_posts, total_edits, total_deletes} = data
           props.setTotal(total_posts, total_edits, total_deletes)
         } else {
-          console.log(data)
+          props.setIsShow(true)
+          props.setError(data, 'warn')
         }
       })
       .catch(err => {
-        console.log(err)
+        props.setIsShow(true)
+        props.setError(err, 'warn')
       })
-
       // eslint-disable-next-line
   }, [])
 

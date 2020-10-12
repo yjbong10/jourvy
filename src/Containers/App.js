@@ -4,25 +4,27 @@ import Auth from './Auth/Auth';
 import Home from '../Component/Home/Home';
 import { setIsLogIn } from '../store/action/userAuth_action';
 import { setProgress } from '../store/action/ui_action';
+import { setIsShow, setError } from '../store/action/ui_action';
 import LoadingBar from 'react-top-loading-bar';
 
 const App = (props) => {
 
   useEffect(() => {
     props.setProgress(10)
-    fetch('http://192.168.0.171:3001/', {credentials: 'include'})
+    fetch('https://jourvy-server.herokuapp.com/', {credentials: 'include'})
       .then(res => res.json())
       .then(data => {
         const {id, name, email, joined} = data;
         if (data.id) {
             props.setIsLogin(id, name, email, joined)
         } else {
-            console.log(data)
+            console.log(data) //welcome!!
         }
       props.setProgress(100)
       })
       .catch(err => {
-        console.log(err)
+        props.setIsShow(true)
+        props.setError('something is wrong. :(')
         props.setProgress(100)
       })
     props.setProgress(50)
@@ -56,7 +58,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
       setIsLogin: (id, name, email, joined) => dispatch(setIsLogIn(id, name, email, joined)),
-      setProgress: (num) => dispatch(setProgress(num))
+      setProgress: (num) => dispatch(setProgress(num)),
+      setError: (error, status) => dispatch(setError(error, status)),
+      setIsShow: (status) => dispatch(setIsShow(status))
   }
 }
 

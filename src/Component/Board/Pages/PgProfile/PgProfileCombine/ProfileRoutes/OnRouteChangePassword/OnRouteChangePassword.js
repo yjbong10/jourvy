@@ -10,11 +10,13 @@ const OnRouteChangePassword = (props) => {
                 <p>current password:</p>
                 <PromptInput 
                 type='password' 
+                name='oldPassword'
                 value={props.userAuth.password}
                 changed={(e) => props.setPasswordInput(e.target.value)}/> 
                 <p>new password:</p>
                 <PromptInput 
                 type='password'
+                name='newPassword'
                 value={props.userAuth.newPassword}
                 changed={(e) => props.setNewPasswordInput(e.target.value)}
                 submited={() => props.setPrompt(

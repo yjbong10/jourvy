@@ -27,7 +27,7 @@ const Prompt = (props) => {
     
         } else {
             props.setIsShow(false);
-            fetch('http://192.168.0.171:3001/verify', {
+            fetch('https://jourvy-server.herokuapp.com/verify', {
                 method: 'post',
                 headers: {'Content-type': 'application/json'},
                 body: JSON.stringify({

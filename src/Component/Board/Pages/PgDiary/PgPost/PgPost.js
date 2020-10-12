@@ -18,12 +18,12 @@ const PgPost = (props) => {
 
 
     const postedDate = posts.postedFmt.slice(0, 10).replace(/[/]/g, '-').replace(/[,]/g, '')
-    const postedTime = posts.postedFmt.slice(11, 22)
+    const postedTime = posts.postedFmt.slice(11, posts.postedFmt.length)
 
     let renderEditedDate;
     if(posts.edited){
         const editedDate = posts.editedFmt.slice(0, 9).replace(/[/]/g, '-').replace(/[,]/g, '')
-        const editedTime = posts.editedFmt.slice(11, 22)
+        const editedTime = posts.editedFmt.slice(11, posts.postedFmt.length)
         renderEditedDate = <p className={css.posted}> Edited on: <em>{editedDate}  {editedTime}</em></p>
     }
 

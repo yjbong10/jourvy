@@ -10,7 +10,7 @@ import { clearUserInfo, clearUserInfoInput } from '../../../../store/action/user
 const LogOut = (props) => {
     useEffect(() => {
         props.setProgress(10)
-        fetch('http://192.168.0.171:3001/logout', {
+        fetch('https://jourvy-server.herokuapp.com/logout', {
             credentials: 'include',
         }).then(res => {
                 if (res) {
@@ -28,7 +28,8 @@ const LogOut = (props) => {
                 }
             })
             .catch(err => {
-                console.log(err)
+                props.setIsShow(true)
+                props.setError('something is wrong. :(', 'warn')
                 props.history.go(-1)
                 props.setProgress(100)
             })

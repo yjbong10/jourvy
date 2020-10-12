@@ -45,14 +45,12 @@ body {
 @media only screen and (max-width: 1050px) {
   html {
     font-size: 60%; 
-    color: goldenrod;
   }
 }
 
 @media only screen and (max-width: 740px) {
   html {
     font-size: 58%; 
-    color: red; 
   }
 }
 

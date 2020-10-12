@@ -2,7 +2,7 @@
 export const onResetProfile = (props) => {
     props.setIsShow(false);
     props.setProgress(10)
-    fetch('http://192.168.0.171:3001/profile/reset', {
+    fetch('https://jourvy-server.herokuapp.com/profile/reset', {
         method: 'put',
         headers: {'Content-type': 'application/json'},
         body: JSON.stringify({
@@ -43,7 +43,7 @@ export const onResetProfile = (props) => {
 export const onChangePassword = (props) => {
     props.setIsShow(false);
     props.setProgress(10)
-    fetch('http://192.168.0.171:3001/account/edit/password', {
+    fetch('https://jourvy-server.herokuapp.com/account/edit/password', {
         method: 'put',
         headers: {'Content-type': 'application/json'},
         body: JSON.stringify({
@@ -85,7 +85,7 @@ export const onChangePassword = (props) => {
 export const onChangeName = (props) => {
     props.setIsShow(false);
     props.setProgress(10)
-    fetch('http://192.168.0.171:3001/account/edit/name', {
+    fetch('https://jourvy-server.herokuapp.com/account/edit/name', {
         method: 'put',
         headers: {'Content-type': 'application/json'},
         body: JSON.stringify({
@@ -121,7 +121,7 @@ export const onChangeName = (props) => {
 export const onDeleteAccount = (props) => {
     props.setIsShow(false);
     props.setProgress(10)
-    fetch('http://192.168.0.171:3001/account/delete', {
+    fetch('https://jourvy-server.herokuapp.com/account/delete', {
         method: 'delete',
         headers: {'Content-type': 'application/json'},
         body: JSON.stringify({
@@ -157,7 +157,7 @@ export const locationVerify = (props) => {
     const { city, lat, lon } = props.userInfoInput
     const previousCity  = props.weatherInfo.location.city
 
-    fetch('http://192.168.0.171:3001/weather', {
+    fetch('https://jourvy-server.herokuapp.com/weather', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -211,7 +211,7 @@ export const saveDefault = (props) => {
     const previousCity  = props.weatherInfo.location.city
 
 
-    fetch('http://192.168.0.171:3001/weather', {
+    fetch('https://jourvy-server.herokuapp.com/weather', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -236,7 +236,7 @@ export const saveDefault = (props) => {
     })
     .then(data => {
         props.setProgress(60)
-        fetch('http://192.168.0.171:3001/settings', {
+        fetch('https://jourvy-server.herokuapp.com/settings', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -262,7 +262,6 @@ export const saveDefault = (props) => {
             props.setProgress(100)
         })
         .catch(err => {
-            console.log(err)
             props.setProgress(100)
         })
         props.setProgress(80)

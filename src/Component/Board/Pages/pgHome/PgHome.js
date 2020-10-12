@@ -13,7 +13,7 @@ const PgHome = (props) => {
   useEffect(() => {
     props.setProgress(10)
     props.setIsWeatherLoad(true)
-    fetch('http://192.168.0.171:3001/weather', {
+    fetch('https://jourvy-server.herokuapp.com/weather', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -31,7 +31,8 @@ const PgHome = (props) => {
         const city = data.name
         props.setWeatherInfo(id, main, temp, feels_like, temp_min, temp_max, description, country, city)
       } else {
-        console.log(data.message)
+        props.setIsShow(true)
+        props.setError(data.message, 'warn')
       }
     props.setProgress(100)
     props.setIsWeatherLoad(false)

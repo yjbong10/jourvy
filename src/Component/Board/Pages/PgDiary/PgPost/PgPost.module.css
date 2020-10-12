@@ -10,6 +10,8 @@
     grid-template-rows: min-content calc(10px * var(--mult)) min-content;
     justify-content: start;
     position: relative;
+    word-break: break-all;
+    min-width: calc(calc(2rem * var(--mult)) + calc(60px * var(--mult) + 200px));
 }
 
 .posted{

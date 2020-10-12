@@ -29,7 +29,7 @@ const Auth = (props) => {
     const onLogIn = (e, email, password) => {
         e.preventDefault();
         props.setProgress(10);
-        fetch('http://192.168.0.171:3001/login', {
+        fetch('https://jourvy-server.herokuapp.com/login', {
             method: 'post',
             credentials: 'include',
             headers: {'Content-Type': 'application/json'},
@@ -85,7 +85,7 @@ const Auth = (props) => {
     const onRegister = async (e, name, email, password) => {
         e.preventDefault();
         props.setProgress(10);
-        fetch('http://192.168.0.171:3001/register', {
+        fetch('https://jourvy-server.herokuapp.com/register', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -106,7 +106,7 @@ const Auth = (props) => {
                 props.setProgress(100);
             })
             .catch(err => {
-                props.setError(err); //show fetch error msg
+                props.setError('something is wrong :('); //show fetch error msg
                 props.setIsShow(true);
                 props.setProgress(100);
             })

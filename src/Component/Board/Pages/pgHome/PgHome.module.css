@@ -59,7 +59,7 @@
 .dairy_img:after{
     content: '';
 
-    background: url('./diary.jpg')
+    background: url('./assets/diary_compressed.jpg')
     no-repeat center center;
     object-fit: cover;
     background-size: cover;
@@ -78,7 +78,7 @@
 .sun_img:after {
     content: '';
 
-    background: url('./sun.jpg')
+    background: url('./assets/sun_compressed.jpg')
     no-repeat top center;
     object-fit: cover;
     background-size: cover;

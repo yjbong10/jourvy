@@ -35,12 +35,12 @@
     border-bottom-right-radius: inherit;
 
     z-index: -1;
-    opacity: 95%;
+    opacity: .95;
     transition: opacity 3s ease;
 }
 
 .page1:hover::after {
-    opacity: 20%;
+    opacity: .20;
     transition: opacity 6s ease;
 }
 
