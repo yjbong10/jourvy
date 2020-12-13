@@ -9,7 +9,7 @@ Server: [https://github.com/yjbong10/jourvy-server](https://github.com/yjbong10/
 
 ### `Features:`
 * Client Side Render
-* Write, Save, Read, Edit
+* Write, Save, Read, Edit, Delete Post
 * Register & Login
 * Stay Login
 * Change account Name, password, and reset account
@@ -17,6 +17,7 @@ Server: [https://github.com/yjbong10/jourvy-server](https://github.com/yjbong10/
 * Night mode
 * Weather info based on location (temperature, weather)
 * Time and Calendar
+* Post Search and filter sort function
 * Alert and Notification 
 
 ### `Technologies used:`
