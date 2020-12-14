@@ -26,7 +26,6 @@
 }
 
 .title {
-    height: 100%;
     grid-row: 1 / 2;
     padding: 0;
     margin: calc(1rem * var(--mult));
